@@ -1,0 +1,90 @@
+body{
+  
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.dsh{
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  height: 90vh;
+  width: 100vw;
+  overflow: hidden; /* Hide any overflow */
+}
+
+.permit-data{
+  
+
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height: 100%;
+  width: 30vw;
+
+}
+
+.permit{
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+  width: 80%;
+  margin-right: 20px;
+  margin-left: 20px;
+  color: white;
+  background-color: #1E90FF;
+  border-radius: 10px;
+
+}
+
+
+
+
+.user-data{
+
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+
+
+
+}
+
+
+.logged-user{
+
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+  width: 100%;
+  margin-right: 40px;
+  margin-left: 20px;
+  color: white;
+  background-color: #1E90FF;
+  border-radius: 10px;
+
+
+}
+
+.permit-info{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 30vw;
+  border-radius: 10px;
+
+}
+
+

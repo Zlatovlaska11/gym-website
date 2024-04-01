@@ -1,0 +1,11 @@
+Model Information:
+* title:	Simple Bench Press
+* source:	https://sketchfab.com/3d-models/simple-bench-press-429192dc57f64b1fa9b3cdf4dada4420
+* author:	carloakuma (https://sketchfab.com/carloakuma)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Simple Bench Press" (https://sketchfab.com/3d-models/simple-bench-press-429192dc57f64b1fa9b3cdf4dada4420) by carloakuma (https://sketchfab.com/carloakuma) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

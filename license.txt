@@ -1,0 +1,8 @@
+Model Information:
+* title:	chess piece - pawn
+* source:	https://sketchfab.com/3d-models/chess-piece-pawn-82fbe237d8844bcea85817ac70861d33
+* author:	rohitpardhi97 (https://sketchfab.com/rohitpardhi97)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

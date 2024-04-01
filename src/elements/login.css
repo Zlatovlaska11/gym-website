@@ -1,0 +1,126 @@
+.loginOrregister input{
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+h1{
+  font-size: 2em;
+}
+
+
+
+
+
+
+.loginOrregister{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+}
+
+.rgform{
+  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  height: 60%;
+  border-radius: 10px;
+  background-color: #1c2841;
+  padding: 20px;
+
+}
+
+.rg{
+
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 30%;
+  border-radius: 10px;
+  background-color: #1c2841;
+  padding: 20px;
+
+
+
+}
+
+.register{
+  
+  height: 80vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.login{
+  
+  height: 80vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.lgform{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  height: 60%;
+  border-radius: 10px;
+  background-color: #1c2841;
+  padding: 20px;
+}
+
+
+.lg{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 30%;
+  border-radius: 10px;
+  background-color: #1c2841;
+  padding: 20px;
+
+}
+
+.subtn{
+  
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+
+}
+
