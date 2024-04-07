@@ -15,6 +15,7 @@ export default {
         'primary': '#1c2841;',
         'secondary': '#ada16b',
         'btn': '#ce0e2d',
+        'sec':  "#2f0000"
       },
 
     },

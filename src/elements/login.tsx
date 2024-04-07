@@ -3,6 +3,8 @@ import "./login.css";
 import axios from "axios";
 import Navbar from "./navbar";
 import { useNavigate } from "react-router-dom";
+import jwt from "jsonwebtoken"
+
 
 interface creds {
   uname: String;
@@ -77,6 +79,7 @@ function Login() {
 
       if (response.status == 200) {
         cacheUserData(formData);
+        localStorage.setItem("xsesion", response.data);
         navigate('/user');
 
       }
@@ -102,6 +105,7 @@ function Login() {
       if (response.status == 200) {
         localStorage.setItem('isLoggedIn', 'true');
         cacheUserData(formDataReg);
+        // apth should contain the user id to validate in the backend /user/:id
         navigate('/user');
         console.log("Successfully registered");
 

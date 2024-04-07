@@ -1,6 +1,9 @@
 import Navbar from './navbar';
 import Model from './3d-model';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { userData } from 'three/examples/jsm/nodes/Nodes.js';
 
 interface ExcerciseProps {
   id: number;
@@ -10,6 +13,37 @@ interface ExcerciseProps {
 
 function Dashboard() {
 
+  const [props, setProps] = useState("");
+
+  let makeReq = async () => {
+
+    const storedUserData = localStorage.getItem('userData');
+
+    if (storedUserData !== null) {
+      const userData = JSON.parse(storedUserData);
+
+      const req = await axios.post('http://localhost:8080/chck', {
+        "username": userData.username,
+        "password": userData.password,
+        "url": 1,
+
+      });
+
+      if (req.status == 200) {
+        console.log("finally");
+      }
+
+    }
+    else {
+      console.log("err");
+    }
+
+  }
+
+  makeReq();
+
+
+  const navigate = useNavigate();
 
   const [id, setId] = useState<number>(0);
 
@@ -17,6 +51,11 @@ function Dashboard() {
     id,
     setId
   };
+
+  let onclick = () => {
+    localStorage.clear();
+    navigate('/');
+  }
 
   return (
     <>
@@ -31,7 +70,7 @@ function Dashboard() {
             <UserInfo title="Weight: 180 lbs" />
             <UserInfo title="Height: 6'2" />
             <UserInfo title="BMI: 25" />
-            <UserInfo title="Workout Plan: 6 days a week" />
+            <button className='flex bg-gray-700 text-center items-center justify-center  w-8/12 h-20 rounded-xl mx-auto mt-14 motion-safe:hover:scale-110' onClick={onclick}>{"Logout"}</button>
 
           </div>
         </div>
@@ -41,17 +80,17 @@ function Dashboard() {
 
           <div className="flex h-fl bg-primary content-evenly flex-row rounded-3xl mx-5 mt-10">
             <div className="flex w-2/12 flex-col rounded-3xl mx-5  mb-10">
-              <Excercise title="Start Workout" id={exporps} buttonID={1}/>
-              <Excercise title="Start Workout" id={exporps} buttonID={2}/>
-              <Excercise title="Start Workout" id={exporps} buttonID={3}/>
-              <Excercise title="Start Workout" id={exporps} buttonID={4}/>
-              <Excercise title="Start Workout" id={exporps} buttonID={5}/>
-              <Excercise title="Start Workout" id={exporps} buttonID={6}/>
+              <Excercise title="Start Workout" id={exporps} buttonID={1} />
+              <Excercise title="Start Workout" id={exporps} buttonID={2} />
+              <Excercise title="Start Workout" id={exporps} buttonID={3} />
+              <Excercise title="Start Workout" id={exporps} buttonID={4} />
+              <Excercise title="Start Workout" id={exporps} buttonID={5} />
+              <Excercise title="Start Workout" id={exporps} buttonID={6} />
 
             </div>
 
             <div className="flex w-10/12  flex-row rounded-3xl mx-5 mb-10">
-              <RenderModel id={exporps.id} />
+              <Model id={id} />
             </div>
           </div>
         </div>
@@ -69,7 +108,7 @@ function UserInfo({ title }: { title: string }) {
   );
 }
 
-function Excercise({ title, id, buttonID}: { title: string, id: ExcerciseProps, buttonID: number}) {
+function Excercise({ title, id, buttonID }: { title: string, id: ExcerciseProps, buttonID: number }) {
 
   let onclick = () => {
     id.setId(buttonID);
@@ -79,53 +118,6 @@ function Excercise({ title, id, buttonID}: { title: string, id: ExcerciseProps, 
   return (
     <button className='flex bg-gray-700 text-center items-center justify-center  w-8/12 h-20 rounded-xl mx-auto mt-14 motion-safe:hover:scale-110' onClick={onclick}>{title}</button>
   );
-}
-
-function RenderModel({ id }: { id: number }) {
-  switch (id) {
-    case 0:
-      return (
-        <>
-          <Model />
-        </>
-      );
-    case 1:
-      return (
-        <>
-          <h1>Excercise 1</h1>
-        </>
-      );
-    case 2:
-      return (
-        <>
-          <Model />
-        </>
-      );
-    case 3:
-      return (
-        <>
-          <Model />
-        </>
-      );
-    case 4:
-      return (
-        <>
-          <Model />
-        </>
-      );
-    case 5:
-      return (
-        <>
-          <Model />
-        </>
-      );
-    default:
-      return (
-        <>
-          <Model />
-        </>
-      );
-  }
 }
 
 

@@ -1,6 +1,10 @@
 import './navbar.css';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import * as jose from 'jose'
+import * as dotenv from 'dotenv'
+
+
 
 function Navbar() {
 
@@ -16,7 +20,7 @@ function Navbar() {
     username = userData.username;
     if (username != "Login") {
 
-      route = "/user" 
+      route = "/user"
 
     }
 
@@ -47,7 +51,7 @@ function Navbar() {
 
 
       <div className="user">
-        <button 
+        <button
           className='username'
           onClick={() => navigate(route)}>
           {username}
