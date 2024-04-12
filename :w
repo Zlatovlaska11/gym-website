@@ -1,0 +1,29 @@
+import Navbar from "./navbar";
+
+export function GetUserData() {
+
+  return (
+    <>
+      <Navbar />
+
+      <div className="w-full h-fl flex items-center justify-center" >
+        <div className="bg-red-50 w-1/5 h-3/5 border-xl rounded-3xl flex-col" >
+          <h1 className="flex justify-center items-center mt-10">{"Question"}</h1>
+
+          <div className="flex justify-center items-center mx-auto" />
+
+          <div className="bg-gray-500 w-3/5 h-3/5 mx-auto flex flex-col justify-center items-center rounded-3xl mt-20 mb-20 content-between">
+            <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight flex border-blue-300 focus:outline-none placeholder:text-center" type="text" placeholder="John" aria-label="Full name"/>
+            <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight flex focus:outline-none placeholder:text-center" type="text" placeholder="Doe" aria-label="Full name"/>
+          </div>
+          </div>
+        </div>
+
+      </>
+
+      );
+
+}
+
+
+      export default GetUserData();

@@ -13,11 +13,7 @@ function Home() {
   console.log(localStorage.getItem('userData'))
 
   const MakeRequest: any = async () => {
-    axios.post("http://127.0.0.1:8080/dsc", {
-      "url": "1",
-      "username": localStorage.getItem('uname'),
-      "password": localStorage.getItem('pass'),
-    })
+    axios.post("http://127.0.0.1:8080/dsc")
       .then((resp) => setProps(resp.data.desc))
       .catch((error) => (console.log(error)));
   }
@@ -29,7 +25,7 @@ function Home() {
   return (
     <>
       <Nabvar />
-      <div className='flex w-full h-fl justify-center self-center flex-row'>
+      <div className='flex w-full h-fl justify-center self-center flex-row animate-slidein'>
         <div className='mx-auto w-5/12 h-fl justify-center self-center mt-20 rounded-xl'>
           <ModelBench id={0}>
           </ModelBench>

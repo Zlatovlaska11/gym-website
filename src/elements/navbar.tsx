@@ -1,23 +1,37 @@
 import './navbar.css';
-import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import * as jose from 'jose'
-import * as dotenv from 'dotenv'
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
+import id_router from './routeId';
 
 
+interface payload {
+  id: number,
+  username: String,
+  password: String,
+  email: String,
+}
 
 function Navbar() {
 
 
 
-  const storedUserData = localStorage.getItem('userData');
-  let username = "Login";
+  const storedUserData = localStorage.getItem('xsesion');
+  let username: String = "Login";
 
   let route = "/login"
 
   if (storedUserData !== null) {
-    const userData = JSON.parse(storedUserData);
-    username = userData.username;
+
+    if (localStorage.getItem('xsesion') !== null) {
+      const token = localStorage.getItem('xsesion')
+      if (token != null) {
+        const jwtDec = jwtDecode<payload>(token);
+        username = jwtDec.username;
+
+      }
+    }
+
     if (username != "Login") {
 
       route = "/user"
@@ -25,6 +39,30 @@ function Navbar() {
     }
 
   }
+
+
+
+  var id: number = -1;
+  const getUserId = async () => {
+
+    if (localStorage.getItem('xsesion') == null) {
+      navigate("/login")
+    }
+    const resp = await axios.post("http://localhost:8080/getId", {
+      "token": localStorage.getItem('xsesion'),
+    });
+
+    if (resp.status == 200) {
+      id = resp.data;
+      navigate(`/user/${id}`);
+    }
+  }
+
+
+
+
+
+
 
   const navigate = useNavigate();
 
@@ -53,7 +91,7 @@ function Navbar() {
       <div className="user">
         <button
           className='username'
-          onClick={() => navigate(route)}>
+          onClick={() => getUserId()}>
           {username}
         </button>
       </div>

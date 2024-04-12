@@ -3,7 +3,6 @@ import "./login.css";
 import axios from "axios";
 import Navbar from "./navbar";
 import { useNavigate } from "react-router-dom";
-import jwt from "jsonwebtoken"
 
 
 interface creds {
@@ -13,18 +12,6 @@ interface creds {
   reg: boolean;
 }
 
-
-function cacheUserData(data: creds) {
-
-  let send_data = {
-
-    "username": data.uname,
-    "password": data.pass,
-
-  }
-
-  localStorage.setItem('userData', JSON.stringify(send_data));
-}
 
 function Login() {
 
@@ -65,6 +52,19 @@ function Login() {
 
   }
 
+  var id: number = -1;
+  const getUserId = async () => {
+    const resp = await axios.post("http://localhost:8080/getId", {
+      "token": localStorage.getItem('xsesion'),
+    });
+
+    if (resp.status == 200) {
+      console.log(resp.data);
+      id = resp.data;
+      navigate(`/user/${id}`);
+    }
+  }
+
 
 
   const handleLoginSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -78,10 +78,10 @@ function Login() {
       });
 
       if (response.status == 200) {
-        cacheUserData(formData);
         localStorage.setItem("xsesion", response.data);
-        navigate('/user');
-
+        getUserId();
+        console.log(id);
+        navigate(`/user/${id}`)
       }
     } catch (error) {
       // handle error or unauthorized
@@ -104,9 +104,8 @@ function Login() {
 
       if (response.status == 200) {
         localStorage.setItem('isLoggedIn', 'true');
-        cacheUserData(formDataReg);
         // apth should contain the user id to validate in the backend /user/:id
-        navigate('/user');
+        navigate('/user/:id');
         console.log("Successfully registered");
 
       }
@@ -123,7 +122,7 @@ function Login() {
       <div className="loginOrregister">
         <div className="login">
           <form className="lgform" onSubmit={handleLoginSubmit}>
-              <h1>Login</h1>
+            <h1>Login</h1>
             <div className="lg">
               <input type="text" placeholder="Username" name="uname" onChange={handleChange} />
               <input type="password" placeholder="Password" name="pass" onChange={handleChange} />
@@ -147,6 +146,24 @@ function Login() {
 
   );
 
+
+}
+
+function getIdToRout() {
+
+  const navigate = useNavigate();
+  var id: number = -1;
+  const getUserId = async () => {
+    const resp = await axios.post("http://localhost:8080/getId", {
+      "token": localStorage.getItem('xsesion'),
+    });
+
+    if (resp.status == 200) {
+      console.log(resp.data);
+      id = resp.data;
+      navigate(`/user/${id}`);
+    }
+  }
 
 }
 

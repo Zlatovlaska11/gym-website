@@ -7,16 +7,21 @@ export default {
   theme: {
     extend: {
       height: {
-        
+
         'fl': '85vh'
-      },  
+      },
 
       colors: {
         'primary': '#1c2841;',
         'secondary': '#ada16b',
         'btn': '#ce0e2d',
-        'sec':  "#2f0000"
+        'sec': "#2f0000",
+        'reg': "#696969"
       },
+
+      animation: {
+        slidein: "slidein 1s ease 300ms",
+      }
 
     },
   },

@@ -3,7 +3,8 @@ import Model from './3d-model';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { userData } from 'three/examples/jsm/nodes/Nodes.js';
+import { jwtDecode } from 'jwt-decode';
+
 
 interface ExcerciseProps {
   id: number;
@@ -11,37 +12,23 @@ interface ExcerciseProps {
 
 }
 
+interface user_data {
+  name: String,
+  exp_date: number,
+  weight: number,
+  streak: number,
+  max: [number, number, number]
+
+}
+
+interface payload {
+  id: number,
+  username: String,
+  password: String,
+  email: String,
+}
+
 function Dashboard() {
-
-  const [props, setProps] = useState("");
-
-  let makeReq = async () => {
-
-    const storedUserData = localStorage.getItem('userData');
-
-    if (storedUserData !== null) {
-      const userData = JSON.parse(storedUserData);
-
-      const req = await axios.post('http://localhost:8080/chck', {
-        "username": userData.username,
-        "password": userData.password,
-        "url": 1,
-
-      });
-
-      if (req.status == 200) {
-        console.log("finally");
-      }
-
-    }
-    else {
-      console.log("err");
-    }
-
-  }
-
-  makeReq();
-
 
   const navigate = useNavigate();
 
@@ -54,8 +41,38 @@ function Dashboard() {
 
   let onclick = () => {
     localStorage.clear();
-    navigate('/');
+    navigate('/login');
   }
+
+  const makeRequest = async () => {
+
+    if (localStorage.getItem('xsesion') !== null) {
+      const token = localStorage.getItem('xsesion')
+      if (token != null) {
+        const jwtDec = jwtDecode<payload>(token);
+        console.log(jwtDec.id);
+
+        const getData = async () => {
+
+          const resp = await axios.post("http://localhost:8080/getData", {
+
+
+          });
+
+          if (resp.status == 200) {
+
+          }
+
+        }
+
+      }
+    }
+
+
+  }
+
+  makeRequest();
+
 
   return (
     <>
