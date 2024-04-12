@@ -1,4 +1,4 @@
-**Zlatovlas Gym Website**
+**Zlatovlas Gym Website** 🏋️‍♂️💪🖥️
 
 Welcome to the official GitHub repository for Zlatovlas Gym's website! This repository contains all the necessary files and code for our gym's website, designed to provide information about our facilities, services, classes, and more. Whether you're a current member, prospective member, or just interested in learning about our gym, you'll find everything you need right here.
 
@@ -30,6 +30,10 @@ git clone https://github.com/your-username/zlatovlas-gym-website.git
 
 Once cloned, you can open the `index.html` file in your web browser to view the website locally. Feel free to explore the code and make any modifications or customizations to suit your needs.
 
+### Blazingly Fast ⚡
+
+Built with Rust, our website is optimized for speed and performance, ensuring a smooth and seamless user experience for all visitors.
+
 ### Contributing:
 
 We welcome contributions from the community to help improve and enhance the Zlatovlas Gym website. If you have any ideas, suggestions, or would like to report an issue, please feel free to open an issue or submit a pull request. We appreciate your feedback and contributions!
@@ -46,4 +50,4 @@ If you have any questions or need further assistance, please don't hesitate to c
 - Phone: +1 (123) 456-7890
 - Address: 123 Fitness Avenue, City, State, Zip Code
 
-Thank you for visiting Zlatovlas Gym's website repository. We hope you enjoy exploring our website and look forward to welcoming you to our gym!
+Thank you for visiting Zlatovlas Gym's website repository. We hope you enjoy exploring our website and look forward to welcoming you to our gym! 🌟🏋️‍♀️
